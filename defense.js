@@ -10,7 +10,7 @@ function solution(n, k, enemy) {
   let notUsingK = enemySum.findIndex((e) => e < n);
   //무적권 안쓰고 최대 갈 수 있는 스테이지
   //그 때까지 제일 큰 수 부터 작은 수 까지 k개 나열
-  //제일 큰 수 뽑고 최대 갈 수 있는 스테이지에서 한칸
+  //제일 큰 수 뽑고 최대 갈 수 있는 스테이지에서 한칸ㄴㅇㄹㄴㅇㄹ
   return enemySum;
 }
 
