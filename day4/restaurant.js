@@ -3,8 +3,9 @@ function solution(orders, course) {
   var answer = [];
   const alphaList = Object.keys(whichAlpha(orders));
   course.forEach((num) => {
-    answer.push(maxOrder(orders, alphaList, num));
+    answer = [...answer, ...maxOrder(orders, alphaList, num)];
   });
+
   return answer.sort();
 }
 function maxOrder(orders, alphaList, num) {
@@ -19,7 +20,7 @@ function maxOrder(orders, alphaList, num) {
     countList.push(combCount);
   });
   countList.forEach((e, index) => {
-    if (e === max) filter.push(combinationList[index].sort().join());
+    if (e === max) filter.push(combinationList[index].sort().join(""));
   });
   return filter;
 }
@@ -67,4 +68,4 @@ function whichAlpha(orders) {
 // console.log(
 //   Object.keys(whichAlpha(["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]))
 // );
-console.log(combination(["A", "B", "C", "F", "G", "D", "E", "H"], 3));
+// console.log(combination(["A", "B", "C", "F", "G", "D", "E", "H"], 3));
