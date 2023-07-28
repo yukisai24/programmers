@@ -2,21 +2,24 @@
 function solution(orders, course) {
   var answer = [];
   const alphaList = Object.keys(whichAlpha(orders));
-
-  return answer;
+  course.forEach((num) => {
+    answer.push(maxOrder(orders, alphaList, num));
+  });
+  return answer.sort();
 }
 function maxOrder(orders, alphaList, num) {
   let combinationList = combination(alphaList, num);
   let countList = [];
-  let max = 0;
+  let max = 1;
   let filter = [];
   combinationList.forEach((comb) => {
-    let combCount = howManyExist(orders, comb);
+    let combCount =
+      howManyExist(orders, comb) > 1 ? howManyExist(orders, comb) : 0;
     if (max < combCount) max = combCount;
     countList.push(combCount);
   });
   countList.forEach((e, index) => {
-    if (e === max) filter.push(combinationList[index]);
+    if (e === max) filter.push(combinationList[index].sort().join());
   });
   return filter;
 }
