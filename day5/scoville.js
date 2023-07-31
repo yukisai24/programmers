@@ -4,10 +4,7 @@ function solution(scoville, K) {
   let scovilleMin = scoville[0];
   while (scovilleMin < K) {
     const newElement = scoville.shift() + 2 * scoville.shift();
-    scoville = insertInAscendingOrder(
-      scoville.sort((a, b) => a - b),
-      newElement
-    );
+    scoville = insertInAscendingOrder(scoville, newElement);
     scovilleMin = scoville[0];
     answer++;
     if (scoville.length <= 1 && scoville[0] < K) return -1;
