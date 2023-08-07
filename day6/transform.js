@@ -5,7 +5,8 @@ function solution(x, y, n) {
   return answer;
 }
 
-function oneTime(x, y, n) {
-  if (x === y) return 0;
-  if (y === x + n || y === x * 2 || y === x * 3) return 1;
+function oneTime(x, y, n, count) {
+  if (x === y) return count;
+  if (y === x + n || y === x * 2 || y === x * 3) return count+1;
+  else 
 }
