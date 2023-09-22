@@ -1,5 +1,5 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/42747
-// https://school.programmers.co.kr/learn/courses/30/lessons/138476
+//11점
 function solution(citations) {
   // citations.sort((a, b) => b - a);
   // const max = citations[0]

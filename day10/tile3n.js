@@ -1,4 +1,5 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/12902
+//14점
 function solution(n) {
   if (n % 2 === 1) return 0;
   const len = n / 2;

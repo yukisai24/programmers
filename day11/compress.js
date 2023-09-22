@@ -1,3 +1,5 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/68936
+// 5점
 function solution(arr) {
   const len = arr.length;
   if (len === 1) return arr[0][0] === 1 ? [0, 1] : [1, 0];
