@@ -1,24 +1,39 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/43163
-function solution(begin, target, words) {
-  var answer = 0;
-  let theWord = begin;
-  let [init, remain] = compareFn(begin, words);
-  for (let str in init) {
-    let _words = [...remain];
+function canTransform(word1, word2) {
+  let diffCount = 0;
+  for (let i = 0; i < word1.length; i++) {
+    if (word1[i] !== word2[i]) {
+      diffCount++;
+      if (diffCount > 1) {
+        return false;
+      }
+    }
   }
-  return answer;
+  return diffCount === 1;
 }
 
-function compareFn(str, words) {
-  let filteredWords = [];
-  let remainWords = [];
-  words.forEach((e) => {
-    let check = 0;
-    for (let i = 0; i < str.length; i++) {
-      e[i] !== str[i] && check++;
-      check > 1 && remainWords.push(e);
+function solution(begin, target, words) {
+  if (!words.includes(target)) {
+    return 0;
+  }
+
+  const visited = new Set();
+  const queue = [[begin, 0]];
+
+  while (queue.length > 0) {
+    const [currentWord, level] = queue.shift();
+
+    if (currentWord === target) {
+      return level;
     }
-    check == 1 ? filteredWords.push(e) : remainWords.push(e);
-  });
-  return [filteredWords, remainWords];
+
+    for (const word of words) {
+      if (!visited.has(word) && canTransform(currentWord, word)) {
+        visited.add(word);
+        queue.push([word, level + 1]);
+      }
+    }
+  }
+
+  return 0;
 }
